@@ -24,10 +24,11 @@ def start():
             }
 
             inviteResp = session.post(f"https://discordapp.com/api/v6/invites/{code}", headers=headers).json()
-
-            if inviteResp["guild"]["name"]:
-                print(f"[{Fore.CYAN}Success{Fore.RESET}] Joined the server: {inviteResp['guild']['name']}")
-
+            try:
+                if inviteResp["guild"]["name"]:
+                    print(f"[{Fore.CYAN}Success{Fore.RESET}] Joined the server: {inviteResp['guild']['name']}")
+            except:
+                pass
         else:
             pass
         numb+=1
